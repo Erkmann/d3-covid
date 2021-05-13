@@ -17,7 +17,7 @@ def get_new_cases_total():
 
 # Retorna o dia de ontem
 def get_yesterday():
-    return datetime.today() - timedelta(days=1)
+    return date.today() - timedelta(days=1)
 
 
 # Verifica se tem o registro de casos de ontem

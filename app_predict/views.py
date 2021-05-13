@@ -1,6 +1,7 @@
+import math
 from django.shortcuts import render
 from datetime import datetime, timedelta
-import json
+import statistics
 
 from rest_framework import status
 from rest_framework.views import APIView
@@ -36,9 +37,32 @@ class PredictView(APIView):
             casos = []
 
             for dia in dias:
-                casos.append(dia.casos) # cria uma lista com os numeros para serem usados como parametro
+                casos.append(
+                    dia.casos
+                )  # cria uma lista com os numeros para serem usados como parametro
 
-            return Response(data=casos, status=status.HTTP_200_OK)
+            result = []
+
+            count = 1  # contador de repeticoes
+            while count <= days:  # executa n vezes
+                media = math.ceil(
+                    statistics.mean(casos)
+                )  # faz a media dos valores da lista de casos, e arredonda para cima
+                result.append(
+                    {"dia": count, "casos": media}
+                )  # adiciona como novo valor previsto no objeto de retorno
+
+                if (
+                    len(casos) >= days
+                ):  # se ja existem dias suficientes para suprir n, retira o primeiro dia para comparar com os ultimos n dias
+                    casos.pop(0)
+
+                casos.append(
+                    media
+                )  # adiciona a previsao aos dias originais para participar da comparacao dentro dos ultimos n dias
+                count += 1
+
+            return Response(data=result, status=status.HTTP_200_OK)
 
         except Exception as e:
             return Response(data={e}, status=status.HTTP_400_BAD_REQUEST)
