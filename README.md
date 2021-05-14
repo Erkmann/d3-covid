@@ -27,4 +27,8 @@ por dia, dos últimos N dias, faz a média aritmética dos casos, e projeta para
 - `python manage.py migrate`
 - `python manage.py runserver`
 
+
 Aplicação estará rodando em `localhost:8000`
+
+## Testes (venv ativada)
+- `python manage.py test`
