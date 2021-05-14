@@ -1,0 +1,20 @@
+{
+	"info": {
+		"_postman_id": "33d4bbdc-5a6f-4447-a367-facdb7f29eda",
+		"name": "Covid Mateus Erkmann",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Predict",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
