@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "33d4bbdc-5a6f-4447-a367-facdb7f29eda",
+		"_postman_id": "680f1c97-33d6-453a-a809-aa2b663a0560",
 		"name": "Covid Mateus Erkmann",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,26 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "http://hpx08.pythonanywhere.com/api/v1/predict/:days/",
+					"protocol": "http",
+					"host": [
+						"hpx08",
+						"pythonanywhere",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"predict",
+						":days",
+						""
+					],
+					"variable": [
+						{
+							"key": "days",
+							"value": "2"
+						}
+					]
 				}
 			},
 			"response": []
